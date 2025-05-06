@@ -2,7 +2,7 @@
 module.exports = {
     server: {
       cors: {
-        origin: ['http://localhost:5173'], // frontend URL
+        origin: ['https://dashboard-learn-dutch.netlify.app/'], // frontend URL
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
         allowedHeaders: ['Content-Type', 'Authorization'],
       },

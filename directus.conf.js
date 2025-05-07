@@ -1,4 +1,3 @@
-// directus.config.js
 module.exports = {
   server: {
     cors: {
@@ -8,7 +7,14 @@ module.exports = {
     },
   },
   database: {
-    client: 'mysql', 
-    connection: process.env.DATABASE_URL, 
+    client: 'mysql',
+    connection: process.env.DATABASE_URL,
+  },
+  auth: {
+    providers: {
+      local: {
+        driver: 'local',
+      },
+    },
   },
 };

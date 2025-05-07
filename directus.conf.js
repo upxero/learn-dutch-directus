@@ -16,11 +16,4 @@ module.exports = {
       database: process.env.DB_DATABASE,
     },
   },
-  auth: {
-    providers: {
-      local: {
-        driver: 'local',
-      },
-    },
-  },
 };

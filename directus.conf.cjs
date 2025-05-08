@@ -1,13 +1,15 @@
 module.exports = {
   server: {
-    cors: {
-      enabled: true,
-      origin: ['https://dashboard-learn-dutch.netlify.app'],
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      allowedHeaders: ['Content-Type', 'Authorization'],
-    },
-    public_url: process.env.PUBLIC_URL,
+   host: process.env.HOST || '0.0.0.0',
+   port: Number(process.env.PORT) || 8055,
+   cors: {
+    enabled: true,
+    origin: ['https://dashboard-learn-dutch.netlify.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   },
+  public_url: process.env.PUBLIC_URL,
+},
   database: {
     client: process.env.DB_CLIENT || 'mysql',
     connection: {

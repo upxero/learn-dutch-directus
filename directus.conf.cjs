@@ -1,13 +1,15 @@
 module.exports = {
   server: {
     cors: {
+      enabled: true,
       origin: ['https://dashboard-learn-dutch.netlify.app'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     },
+    public_url: process.env.PUBLIC_URL,
   },
   database: {
-    client: 'mysql',
+    client: process.env.DB_CLIENT || 'mysql',
     connection: {
       host: process.env.DB_HOST,
       port: Number(process.env.DB_PORT),
@@ -15,5 +17,23 @@ module.exports = {
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
     },
+  },
+  auth: {
+    providers: {
+      email: {
+        driver: 'email',
+        settings: {
+          allowPublicRegistration: false,
+        },
+      },
+    },
+  },
+  storage: {
+    local: {
+      root: './uploads',
+    },
+  },
+  websocket: {
+    enabled: true,
   },
 };
